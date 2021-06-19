@@ -1,0 +1,7 @@
+﻿<meta>
+  <info name="Init" author="Dylan" type="gamemode" async="true"/>
+
+  <!-- MAIN script with all *.cs files. -->
+  <script src="bin/Debug/netcoreapp3.1/IMRP.dll" type="server" lang="compiled"/>
+
+</meta>

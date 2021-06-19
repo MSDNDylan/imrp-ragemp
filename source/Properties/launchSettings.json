@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "IMRP": {
+      "commandName": "Executable",
+      "executablePath": "C:\\Users\\djand\\OneDrive\\Documents\\imrp-gm\\ragemp-server.exe",
+      "workingDirectory": "C:\\Users\\djand\\OneDrive\\Documents\\imrp-gm"
+    }
+  }
+}
