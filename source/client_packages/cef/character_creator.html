@@ -1,0 +1,291 @@
+<html>
+
+<head>
+    <link href="package://IMRP/cef/css/style.css" rel="stylesheet">
+    <link href="package://IMRP/cef/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body style="background:rgba(144, 144, 144, 0)">
+    <div id="characterOptions" class="boxtopcenter">
+        <div class="center">
+            <h1><strong>CHARACTER CREATOR</strong></h1>
+            <input id="genderOption" type="submit" name="" value="Gender">
+            <input id="bodyOption" type="submit" name="" value="Body">
+            <input id="headOption" type="submit" name="" value="Head">
+            <input id="faceOption" type="submit" name="" value="Face">
+            <input id="faceDetailOption" type="submit" name="" value="Face Detail">
+            <input id="makeupOption" type="submit" name="" value="Makeup">
+        </div>
+    </div>
+
+    <div id="genderForm" class="boxright" style="margin-top: 5px;">
+        <div class="center">
+            <p id="loginError" class="lead errortxt"></p>
+            <p class="lead boxtext">Gender</p>
+            <input id="maleButton" type="submit" class="Active" name="" value="Male">
+            <input id="femaleButton" type="submit" name="" value="Female">
+
+            <label id="fatherSliderLabel" for="customRange2" class="lead boxtext"style="display: block;text-align:left;padding-top: 2px;">Father</label>
+            <input id="fatherSlider" type="range" class="custom-range" min="0" value="0" max="45">
+
+            <label for="customRange2" class="lead boxtext"style="display: block;text-align:left;padding-top: 2px;">Mother</label>
+            <input type="range" class="custom-range" value="0" min="0" max="45" id="motherSlider">
+
+            <label id="resLabel" for="customRange2" class="lead boxtext"style="display: block;text-align:left;padding-top: 2px;">Resemblance</label>
+            <input type="range" class="custom-range" value="0.5" min="0.0" max="1.0" step="0.1" id="resemblanceSlider">
+        </div>
+    </div>
+
+    <div id="headForm" class="boxright" style="margin-top: 5px;">
+        <div class="center">
+            <p id="loginError" class="lead errortxt"></p>
+            <p class="lead boxtext">Head</p>
+            <label for="customRange2" class="lead boxtext"style="display: block;text-align:left;padding-top: 2px;">Hair Style</label>
+            <input type="range" class="custom-range" min="0" value="0" max="24" id="hairStyleSlider">
+
+            <label for="customRange2" class="lead boxtext"style="display: block;text-align:left;padding-top: 2px;">Hair Color</label>
+            <input type="range" class="custom-range" min="0" value="0" max="27" id="hairColorSlider">
+
+            <label for="customRange2" class="lead boxtext"style="display: block;text-align:left;padding-top: 2px;">Highlights</label>
+            <input type="range" class="custom-range" min="0" value="0" max="27" id="hairHighlightSlider">
+
+            <label for="customRange2" class="lead boxtext"style="display: block;text-align:left;padding-top: 2px;">Eyebrows</label>
+            <input type="range" class="custom-range" min="0" value="0" max="34" id="eyebrowSlider">
+
+            <label for="customRange2" class="lead boxtext"style="display: block;text-align:left;padding-top: 2px;">Eyebrow Thickness</label>
+            <input type="range" class="custom-range" value="1.0" min="0.0" max="1.0" step="0.1" id="eyebrowThicknessSlider">
+
+            <label for="customRange2" class="lead boxtext"style="display: block;text-align:left;padding-top: 2px;">Eyebrow Color</label>
+            <input type="range" class="custom-range" min="0" value="0" max="27" id="eyebrowColorSlider">
+
+            <label for="customRange2" class="lead boxtext"style="display: block;text-align:left;padding-top: 2px;">Beard</label>
+            <input type="range" class="custom-range" min="0" value="0" max="29" id="beardSlider">
+
+            <label for="customRange2" class="lead boxtext"style="display: block;text-align:left;padding-top: 2px;">Beard Thickness</label>
+            <input type="range" class="custom-range" value="1.0" min="0.0" max="1.0" step="0.1" id="beardThicknessSlider">
+
+            <label for="customRange2" class="lead boxtext"style="display: block;text-align:left;padding-top: 2px;">Beard Color</label>
+            <input type="range" class="custom-range" min="0" value="0" max="27" id="beardColorSlider">
+
+        </div>
+    </div>
+
+    <div id="faceForm" class="boxright" style="margin-top: 5px;">
+        <div class="center">
+            <p id="loginError" class="lead errortxt"></p>
+            <p class="lead boxtext">Face</p>
+            <label for="customRange2" class="lead boxtext"style="display: block;text-align:left;padding-top: 2px;">Skim Blemishes</label>
+            <input type="range" class="custom-range" min="0" value="0" max="24" id="skinBlemishSlider">
+
+            <label for="customRange2" class="lead boxtext"style="display: block;text-align:left;padding-top: 2px;">Skin Aging</label>
+            <input type="range" class="custom-range" min="0" value="0" max="15" id="skinAgingSlider">
+
+            <label for="customRange2" class="lead boxtext"style="display: block;text-align:left;padding-top: 2px;">Aging Opacity</label>
+            <input type="range" class="custom-range" value="1.0" min="0.0" max="1.0" step="0.1" id="agingOpacitySlider">
+
+            <label for="customRange2" class="lead boxtext"style="display: block;text-align:left;padding-top: 2px;">Skin Complexion</label>
+            <input type="range" class="custom-range" min="0" value="0" max="12" id="skinComplexionSlider">
+
+            <label for="customRange2" class="lead boxtext"style="display: block;text-align:left;padding-top: 2px;">Complexion Opacity</label>
+            <input type="range" class="custom-range" value="1.0" min="0.0" max="1.0" step="0.1" id="complexionOpacitySlider">
+
+            <label for="customRange2" class="lead boxtext"style="display: block;text-align:left;padding-top: 2px;">Moles/Freckles</label>
+            <input type="range" class="custom-range" min="0" value="0" max="18" id="molesFrecklesSlider">
+
+            <label for="customRange2" class="lead boxtext"style="display: block;text-align:left;padding-top: 2px;">Moles/Freckle Opacity</label>
+            <input type="range" class="custom-range"value="1.0" min="0.0" max="1.0" step="0.1" id="molesFrecklesOpacitySlider">
+
+            <label for="customRange2" class="lead boxtext"style="display: block;text-align:left;padding-top: 2px;">Skin Damage</label>
+            <input type="range" class="custom-range" min="0" value="0" max="11" id="skinDamgeSlider">
+
+            <label for="customRange2" class="lead boxtext"style="display: block;text-align:left;padding-top: 2px;">Damage Opacity</label>
+            <input type="range" class="custom-range" value="1.0" min="0.0" max="1.0" step="0.1" id="damageOpacitySlider">
+
+        </div>
+    </div>
+
+    <div id="makeupForm" class="boxright" style="margin-top: 5px;">
+        <div class="center">
+            <p id="loginError" class="lead errortxt"></p>
+            <p class="lead boxtext">Makeup</p>
+
+            <label for="customRange2" class="lead boxtext"style="display: block;text-align:left;padding-top: 2px;">Makeup</label>
+            <input type="range" class="custom-range" min="0" value="0" max="74" id="makeupSlider">
+
+            <label for="customRange2" class="lead boxtext"style="display: block;text-align:left;padding-top: 2px;">Blush</label>
+            <input type="range" class="custom-range" min="0" value="0" max="6" id="blushSlider">
+
+            <label for="customRange2" class="lead boxtext"style="display: block;text-align:left;padding-top: 2px;">Blush Opacity</label>
+            <input type="range" class="custom-range" value="1.0" min="0.0" max="1.0" step="0.1" id="blushOpacitySlider">
+
+            <label for="customRange2" class="lead boxtext"style="display: block;text-align:left;padding-top: 2px;">Blush Color</label>
+            <input type="range" class="custom-range" min="0" value="0" max="26" id="blushColorSlider">
+
+            <label for="customRange2" class="lead boxtext"style="display: block;text-align:left;padding-top: 2px;">Lipstick</label>
+            <input type="range" class="custom-range" min="0" value="0" max="9" id="lipstickSlider">
+
+            <label id="loLabel" for="customRange2" class="lead boxtext"style="display: block;text-align:left;padding-top: 2px;">Lipstick Opacity</label>
+            <input type="range" class="custom-range" value="1.0" min="0.0" max="1.0" step="0.1" id="lipstickOpacitySlider">
+
+            <label for="customRange2" class="lead boxtext"style="display: block;text-align:left;padding-top: 2px;">Lipstick Color</label>
+            <input type="range" class="custom-range" min="0" value="0" max="26" id="lipstickColorSlider">
+        </div>
+    </div>
+
+    <div id="bodyForm" class="boxright" style="margin-top: 5px;">
+        <div class="center">
+            <p id="loginError" class="lead errortxt"></p>
+            <p class="lead boxtext">Body</p>
+
+            <label for="customRange2" class="lead boxtext"style="display: block;text-align:left;padding-top: 2px;">Skin Color</label>
+            <input type="range" class="custom-range" min="0" value="0" max="45" id="skinColorSlider">
+
+            <label for="customRange2" class="lead boxtext"style="display: block;text-align:left;padding-top: 2px;">Body Blemishes</label>
+            <input type="range" class="custom-range" min="0" value="0" max="12" id="bodyBlemishSlider">
+
+            <label for="customRange2" class="lead boxtext"style="display: block;text-align:left;padding-top: 2px;">Blemish Opacity</label>
+            <input type="range" class="custom-range" min="0.0" max="1.0" step="0.1" value="1.0" id="blemishOpacitySlider">
+
+            <label for="customRange2" class="lead boxtext"style="display: block;text-align:left;padding-top: 2px;">Chest Hair</label>
+            <input type="range" class="custom-range" min="0" value="0" max="17" id="chestHairSlider">
+
+            <label for="customRange2" class="lead boxtext"style="display: block;text-align:left;padding-top: 2px;">Chest Hair Opacity</label>
+            <input type="range" class="custom-range" min="0.0" max="1.0" step="0.1" value="1.0" id="chestHairOpacity">
+        </div>
+    </div>
+    <div id="faceDetailForm" class="boxright" style="margin-top: 5px;">
+        <div class="center">
+            <p id="loginError" class="lead errortxt"></p>
+            <p class="lead boxtext">Face Detail</p>
+            <input id="noseOption" type="submit" name="" value="Nose">
+            <input id="browOption" type="submit" name="" value="Brow">
+            <input id="cheekBoneOption" type="submit" name="" value="Cheekbone">
+            <input id="eyesOption" type="submit" name="" value="Eyes">
+            <input id="lipsOption" type="submit" name="" value="Lips">
+            <input id="jawOption" type="submit" name="" value="Jaw">
+            <input id="chinOption" type="submit" name="" value="Chin">
+            <input id="neckOption" type="submit" name="" value="Neck">
+
+            <div id="noseOptions" class="center">
+                <br>
+                <p class="lead boxtext">Nose</p>
+                <label for="customRange2" class="lead boxtext"style="display: block;text-align:left;padding-top: 2px;">Width</label>
+                <input type="range" class="custom-range" min="0.0" max="1.0" step="0.1" value="0.0" id="noseWidthSlider">
+                <label for="customRange2" class="lead boxtext"style="display: block;text-align:left;padding-top: 2px;">Height</label>
+                <input type="range" class="custom-range" min="0.0" max="1.0" step="0.1" value="0.0" id="noseHeighSlider">
+                <label for="customRange2" class="lead boxtext"style="display: block;text-align:left;padding-top: 2px;">Length</label>
+                <input type="range" class="custom-range" min="0.0" max="1.0" step="0.1" value="0.0" id="noseLengthSlider">
+                <label for="customRange2" class="lead boxtext"style="display: block;text-align:left;padding-top: 2px;">Bridge</label>
+                <input type="range" class="custom-range" min="0.0" max="1.0" step="0.1" value="0.0" id="noseBridgeSlider">
+                <label for="customRange2" class="lead boxtext"style="display: block;text-align:left;padding-top: 2px;">Brdige Shift</label>
+                <input type="range" class="custom-range" min="0.0" max="1.0" step="0.1" value="0.0" id="noseBridgeShiftSlider">
+                <label for="customRange2" class="lead boxtext"style="display: block;text-align:left;padding-top: 2px;">Tip</label>
+                <input type="range" class="custom-range" min="0.0" max="1.0" step="0.1" value="0.0" id="noseTipSlider">
+            </div>
+            <div id="browOptions" class="center">
+                <br>
+                <p class="lead boxtext">Eyebrows</p>
+                <label for="customRange2" class="lead boxtext"style="display: block;text-align:left;padding-top: 2px;">Width</label>
+                <input type="range" class="custom-range" min="0.0" max="1.0" step="0.1" value="0.0" id="browWidthSlider">
+                <label for="customRange2" class="lead boxtext"style="display: block;text-align:left;padding-top: 2px;">Height</label>
+                <input type="range" class="custom-range" min="0.0" max="1.0" step="0.1" value="0.0" id="browHeightSlider">
+            </div>
+
+            <div id="cheekBoneOptions" class="center">
+                <br>
+                <p class="lead boxtext">Cheekbone</p>
+                <label for="customRange2" class="lead boxtext"style="display: block;text-align:left;padding-top: 2px;">Width</label>
+                <input type="range" class="custom-range" min="0.0" max="1.0" step="0.1" value="0.0" id="cheekBoneWidthSlider">
+                <label for="customRange2" class="lead boxtext"style="display: block;text-align:left;padding-top: 2px;">Height</label>
+                <input type="range" class="custom-range" min="0.0" max="1.0" step="0.1" value="0.0" id="cheekBoneHeightSlider">
+                <p class="lead boxtext">Cheekbone</p>
+                <label for="customRange2" class="lead boxtext"style="display: block;text-align:left;padding-top: 2px;">Width</label>
+                <input type="range" class="custom-range" min="0.0" max="1.0" step="0.1" value="0.0" id="cheekWidthSlider">
+            </div>
+
+            <div id="eyesOptions" class="center">
+                <br>
+                <p class="lead boxtext">Eyes</p>
+                <label for="customRange2" class="lead boxtext"style="display: block;text-align:left;padding-top: 2px;">Eyes Opened/Closed</label>
+                <input type="range" class="custom-range" min="0.0" max="1.0" step="0.1" value="0.0" id="eyeOpenSlider">
+            </div>
+
+            <div id="lipsOptions" class="center">
+                <br>
+                <p class="lead boxtext">Lips</p>
+                <label for="customRange2" class="lead boxtext"style="display: block;text-align:left;padding-top: 2px;">Lips Wide/Narrow</label>
+                <input type="range" class="custom-range" min="0.0" max="1.0" step="0.1" value="0.0" id="lipsWideSlider">
+            </div>
+
+            <div id="jawOptions" class="center">
+                <br>
+                <p class="lead boxtext">Jaw</p>
+                <label for="customRange2" class="lead boxtext"style="display: block;text-align:left;padding-top: 2px;">Width</label>
+                <input type="range" class="custom-range" min="0.0" max="1.0" step="0.1" value="0.0" id="jawWidthSlider">
+                <label for="customRange2" class="lead boxtext"style="display: block;text-align:left;padding-top: 2px;">Height</label>
+                <input type="range" class="custom-range" min="0.0" max="1.0" step="0.1" value="0.0" id="jawHeightSlider">
+            </div>
+
+            <div id="chinOptions" class="center">
+                <br>
+                <p class="lead boxtext">Chin</p>
+                <label for="customRange2" class="lead boxtext"style="display: block;text-align:left;padding-top: 2px;">Length</label>
+                <input type="range" class="custom-range" min="0.0" max="1.0" step="0.1" value="0.0" id="chinLengthSlider">
+                <label for="customRange2" class="lead boxtext"style="display: block;text-align:left;padding-top: 2px;">Position</label>
+                <input type="range" class="custom-range" min="0.0" max="1.0" step="0.1" value="0.0" id="chinPositionSlider">
+                <label for="customRange2" class="lead boxtext"style="display: block;text-align:left;padding-top: 2px;">Width</label>
+                <input type="range" class="custom-range" min="0.0" max="1.0" step="0.1" value="0.0" id="chinWidthSlider">
+                <label for="customRange2" class="lead boxtext"style="display: block;text-align:left;padding-top: 2px;">Shape</label>
+                <input type="range" class="custom-range" min="0.0" max="1.0" step="0.1" value="0.0" id="chinShapeSlider">
+            </div>
+
+            <div id="neckOptions" class="center">
+                <br>
+                <p class="lead boxtext">Neck</p>
+                <label for="customRange2" class="lead boxtext"style="display: block;text-align:left;padding-top: 2px;">Neck Width</label>
+                <input type="range" class="custom-range" min="0.0" max="1.0" step="0.1" value="0.0" id="neckWidthSlider">
+            </div>
+        </div>
+    </div>
+
+    <div  id="roleplayInfo" class="boxleft" style="margin-top: 5px;">
+        <div class="center">
+            <p id="creatorError" class="lead errortxt"></p>
+            <p class="lead boxtext">Roleplay Name</p>
+            <input id="characterFirstname" name="email" type="text" value="" placeholder="FirstName">
+            <input id="characterLastname" name="email" type="text" value="" placeholder="LastName">
+            <p class="lead boxtext">Age</p>
+            <input id="characterAge" name="" type="number" value="" placeholder="Age">
+            <input id="promptFinish" type="submit" name="" value="Create Character">
+            <input id="promptCancel" type="submit" name="" value="Cancel">
+        </div>
+    </div>
+
+    <div id="confirmFinished" class="boxcenter">
+        <div class="center">
+            <h1><strong>Character Creator</strong></h1>
+            <p class="lead boxtext">Are you sure you are finished creating your character?</p>
+            <p id="finishLabel" class="lead boxtext"></p>
+            <input id="finishCharacter" style="display:inline-block; float: left;" type="submit" name="" value="Yes">
+            <input id="cancelFinish"  style="display:inline-block;float: right;" type="submit" name="" value="No">
+        </div>
+    </div>
+
+    <div id="confirmCancel" class="boxcenter">
+        <div class="center">
+            <h1><strong>Character Creator</strong></h1>
+            <p class="lead boxtext">Are you sure you want to return to selecting a character?</p>
+            <p id="finishLabel" class="lead boxtext"></p>
+            <input id="cancelCreator" style="display:inline-block; float: left;" type="submit" name="" value="Yes">
+            <input id="cancelCancel"  style="display:inline-block;float: right;" type="submit" name="" value="No">
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="utils/bootstrap.min.js"></script>
+    <script src="utils/anime.min.js"></script>
+    <script src="https://kit.fontawesome.com/640357ffb4.js"></script>
+</body>
+</html>
+<script type="text/javascript" src="package://IMRP/cef/character_creator.js"></script>

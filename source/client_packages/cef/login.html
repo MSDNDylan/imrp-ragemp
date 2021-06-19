@@ -1,0 +1,107 @@
+<html>
+
+<head>
+    <link href="package://IMRP/cef/css/style.css" rel="stylesheet">
+    <link href="package://IMRP/cef/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body style="background:rgba(144, 144, 144, 0)">
+    <div id="loginBox" class="boxcenter">
+        <span class="switchText" onclick="showForm(`register`);">Doesn't own an account? Register now!</span>
+        <div class="center">
+            <img src="utils/img/logo.png" style="width: 192; margin-bottom: 20;">
+            <h1><strong></strong></h1>
+            <p id="loginError" class="lead errortxt"></p>
+            <p class="lead boxtext">Type in your login credentials to continue.</p>
+            <input id="username" name="email" type="text" placeholder="Username">
+            <input id="loginPassword" name="password" type="password" placeholder="Password">
+            <input id="loginbtn" type="submit"  value="Login">
+
+        </div>
+    </div>
+    <div id="registerBox" class="boxcenter">
+        <span class="switchText" onclick="showForm(`login`);">Already own an account? Back to login!</span>
+        <div class="center">
+            <img src="utils/img/logo.png" style="width: 192; margin-bottom: 20;">
+            <h1><strong>REGISTER NEW ACCOUNT</strong></h1>
+            <p id="registerError" class="lead errortxt"></p>
+            <p class="lead boxtext">Fill out the form to register a new account.</p>
+            <input id="registerUsername" name="username" type="text" value="" placeholder="Username">
+            <input id="email" name="email" type="text" value="" placeholder="E-Mail">
+            <input id="password" name="password" type="PASSWORD" value="" placeholder="Password">
+            <input id="password2" name="password2" type="password" value="" placeholder="Confirm Password">
+            <input id="registerbtn" type="submit" name="" value="Register">
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="utils/bootstrap.min.js"></script>
+    <script src="utils/anime.min.js"></script>
+    <script src="https://kit.fontawesome.com/640357ffb4.js"></script>
+</body>
+
+<script>
+    showForm(`login`);
+    $('#registerbtn').click(() => {
+        if ($('#password').val().length <= 0 || $('#password2').val().length <= 0 || $('#email').val().length <= 0 || $('#registerUsername').val().length <= 0) {
+            showError(`register`, `You have to fill out all form inputs`);
+            return;
+        }
+        if ($('#password').val() != $('#password2').val()) {
+            showError(`register`, `The entered Passwords are not the same.`);
+            return;
+        }
+        if(!emailIsValid($('#email').val()))
+        {
+            showError(`register`, `Please enter a valid email address.`);
+            return;
+        }
+        showError(`register`, ``);
+        mp.trigger("hide_login_browser");
+        mp.trigger("register", $('#registerUsername').val(), $('#email').val(), $('#password').val());
+    });
+
+    $("#loginbtn").click(() => {
+        if ($('#loginPassword').val().length <= 0 || $('#username').val().length <= 0) {
+            showError(`login`, `You have to fill out all form inputs.`);
+            return;
+        }
+        showError(`login`, ``);
+        mp.trigger("hide_login_browser");
+        mp.trigger("login", $('#username').val(), $('#loginPassword').val());
+    });
+
+    function emailIsValid (email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+    }
+
+    function showError(field, error) {
+        if (field == "register") {
+            $("#registerError").html(`<strong>${error}</strong>`);
+        } else {
+            $("#loginError").html(`<strong>${error}</strong>`);
+        }
+    }
+
+    function showForm(form) {
+        $("#registerBox").hide();
+        $("#loginBox").hide();
+        switch (form) {
+            case "login":
+                $("#loginBox").fadeTo(1000, 1, function() {
+                    $("#loginBox").show();
+                });
+                break;
+            case "register":
+                $("#registerBox").fadeTo(1000, 1, function() {
+                    $("#registerBox").show();
+                    $("#loginBox").hide();
+                });
+                break;
+        }
+    }
+</script>
+</body>
+
+</html>

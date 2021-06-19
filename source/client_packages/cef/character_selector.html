@@ -1,0 +1,137 @@
+<html>
+
+<head>
+    <link href="package://IMRP/cef/css/style.css" rel="stylesheet">
+    <link href="package://IMRP/cef/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body style="background:rgba(144, 144, 144, 0)">
+    <div id="characterSelector" class="boxbottomcenter" style="width: 400px;">
+        <div class="center">
+            <h1 style="font-size: 24px"><strong>CHARACTER SELECTOR</strong></h1>
+            <input id="leftSelect" style="display:inline-block; float: left;" type="submit" name="" value="<">
+            <p id="characterName" class="lead boxtext" style="display:inline-block;">No Characters</p>
+            <input id="rightSelect"  style="display:inline-block;float: right;" type="submit" name="" value=">">
+            <br>
+            <input id="playSelect" type="submit" name="" value="Play">
+        </div>
+    </div>
+
+    <div id="confirmDelete" class="boxcenter">
+        <div class="center">
+            <h1><strong>Are you Sure?</strong></h1>
+            <p id="deleteLabel" class="lead boxtext">Do you wish to delete  ?</p>
+            <input id="deleteCharacter" style="display:inline-block; float: left;" type="submit" name="" value="Delete Character">
+            <input id="cancelDelete"  style="display:inline-block;float: right;" type="submit" name="" value="Cancel">
+        </div>
+    </div>
+    <div  id="characterOptions" class="boxleft" style="margin-top: 5px;">
+        <div class="center">
+            <img src="utils/img/logo.png" style="width: 192; margin-bottom: 20;">
+            <br>
+            <p id="welcomeMessage" class="lead boxtext" style="display:inline-block;">Welcome back, Unknown!</p>
+            <br>
+            <input id="createNewChar" type="submit" name="" value="Create New Character">
+            <input id="deleteChar" type="submit" name="" value="Delete Character">
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="utils/bootstrap.min.js"></script>
+    <script src="utils/anime.min.js"></script>
+    <script src="https://kit.fontawesome.com/640357ffb4.js"></script>
+</body>
+
+<script>
+    hideForm(`#confirmDelete`);
+    hideForm(`#playSelect`);
+
+    var characters = [];
+    var currentSelection = 0;
+
+    if(characters.length > 0)
+    {
+        $("#characterName").html(`${characters[currentSelection].FirstName} ${characters[currentSelection].LastName}`);
+        showForm(`#playSelect`);
+    }
+    else
+    {
+        $("#characterName").html('No Characters'); 
+        hideForm(`#playSelect`);
+    }
+    $('#createNewChar').click(() => {
+        mp.trigger('transistionToCreator');
+    });
+
+    $('#deleteChar').click(() => {
+        $("#deleteLabel").html(`Do you wish to delete ${characters[currentSelection].FirstName} ${characters[currentSelection].LastName} ?`);
+        showForm('#confirmDelete');
+    });
+
+    $('#deleteCharacter').click(() => {
+        hideForm(`#confirmDelete`);
+        mp.trigger('deleteCharacter', currentSelection);
+    });
+    $('#cancelDelete').click(() => {
+        hideForm(`#confirmDelete`);
+    });
+
+    $('#playSelect').click(() => {
+        mp.trigger('selectorFinished', currentSelection);
+    });
+
+    $('#leftSelect').click(() => {
+        if(characters.length <= 0) return;
+        currentSelection--;
+
+        if(currentSelection < 0){
+            currentSelection = 0;
+            return;
+        }
+        $("#characterName").html(`${characters[currentSelection].FirstName} ${characters[currentSelection].LastName}`);
+        mp.trigger('changeCharacterSelection', currentSelection);
+    });
+
+    $('#rightSelect').click(() => {
+        if(characters.length <= 0) return;
+
+        currentSelection++;
+
+        if(currentSelection > characters.length-1){
+            currentSelection = characters.length-1;
+        }
+
+        $("#characterName").html(`${characters[currentSelection].FirstName} ${characters[currentSelection].LastName}`);
+        mp.trigger('changeCharacterSelection', currentSelection);
+    });
+
+    function populateCharacterData(data){
+        characters = data;
+
+        if(characters.length > 0)
+        {
+            currentSelection = 0;
+            $("#characterName").html(`${characters[currentSelection].FirstName} ${characters[currentSelection].LastName}`);
+            showForm(`#playSelect`);
+            mp.trigger('changeCharacterSelection', currentSelection);
+        }
+        else
+        {
+            $("#characterName").html('No Characters'); 
+            hideForm(`#playSelect`);
+        }
+    }
+    function updateMessage(value){
+       $('#welcomeMessage').text(`Welcome back, ${value}!`);
+    }
+    function showForm(form) {
+          $(form).show();
+    }
+    function hideForm(form) {
+        $(form).hide();
+    }
+</script>
+</body>
+
+</html>
